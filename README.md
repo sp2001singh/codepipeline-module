@@ -1,17 +1,19 @@
-# Use this module cimply copy and paste it into the main.tf file and it will automatically initilaize the backend process by the terraform init command. 
+# Terraform CodePipeline Module
 
+Use this module by simply copying and pasting it into the main.tf file. It will automatically initialize the backend process by the `terraform init` command.
 
+```hcl
 module "codepipeline" {
   source = "git::https://github.com/sp2001singh/codepipeline-module.git"
- 
+
   region                  = "us-east-1"
-  #code Commit repo name
+  # CodeCommit repo name
   repo_name               = "cicd-tf-test"
   tag_name_for_codedeploy = "cicd-test-App"
- 
-  # name of the ecr repo
+
+  # Name of the ECR repo
   name = "shiv-ecr-repo"
- 
+
   # Tags
   tags = {
     Owner       = "DevOps team"
@@ -19,4 +21,3 @@ module "codepipeline" {
     Terraform   = true
   }
 }
- 
